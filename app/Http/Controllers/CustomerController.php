@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use Src\App\Customers\Application\ObtenerCliente;
 use Src\App\Customers\Application\ObtenerTodosClientes;
 
 class CustomerController extends Controller
@@ -16,6 +17,8 @@ class CustomerController extends Controller
 
 	public function show(Customer $customer)
 	{
-		// 
+		$obtener_cliente = new ObtenerCliente($customer);
+		$customerDTO = $obtener_cliente->execute();
+		return response()->json($customerDTO);
 	}
 }
