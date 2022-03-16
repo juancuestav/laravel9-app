@@ -10,6 +10,7 @@ services:
       - MARIADB_DATABASE=laravel_db
   myapp:
     image: docker.io/bitnami/laravel:9
+    container_name: laravel9-app
     ports:
       - '8000:8000'
     environment:
